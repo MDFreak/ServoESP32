@@ -19,14 +19,14 @@ enum DIR_t
 enum POS_t
   {
     POS_DEF = 0,
-    POS_L   = -20,
-    POS_H   = 200
+    POS_L   = 60,
+    POS_H   = 120
   };
 static const int  servoPin = 16;
 
-//static int        mode     = MODE_ORG;
+static int        mode     = MODE_ORG;
 //static int        mode     = MODE_DREIECK;
-static int        mode     = MODE_TOGGLE;
+//static int        mode     = MODE_TOGGLE;
 static int        posAkt   = POS_DEF;
 static int        dir      = DIR_UP;
 
@@ -44,18 +44,18 @@ void loop()
     switch (mode)
       {
         case MODE_ORG:// hin und herfahren mit Pause
-          for(int posDegrees = 0; posDegrees <= POS_H; posDegrees++)
+          for(posAkt; posAkt <= POS_H; posAkt++)
             {
-              servo1.write(posDegrees);
-              Serial.println(posDegrees);
-              usleep(10000);
+              servo1.write(posAkt);
+              Serial.println(posAkt);
+              usleep(15000);
             }
           sleep(1);
-          for(int posDegrees = POS_L; posDegrees >= 0; posDegrees--)
+          for(posAkt; posAkt >= POS_L; posAkt--)
             {
-              servo1.write(posDegrees);
-              Serial.println(posDegrees);
-              usleep(10000);
+              servo1.write(posAkt);
+              Serial.println(posAkt);
+              usleep(15000);
             }
           sleep(1);
           break;

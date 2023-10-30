@@ -63,7 +63,7 @@ class ServoTemplate : public ServoBase {
     static const int DEFAULT_MIN_PULSE_WIDTH_US = 544;   // the shortest pulse sent to a servo
     static const int DEFAULT_MAX_PULSE_WIDTH_US = 2400;  // the longest pulse sent to a servo
 
-    static const int DEFAULT_FREQUENCY = 150;
+    static const int DEFAULT_FREQUENCY = 50;
 
     static const int TIMER_RESOLUTION = std::min(16, SOC_LEDC_TIMER_BIT_WIDE_NUM);
     static const int PERIOD_TICKS = (1 << TIMER_RESOLUTION) - 1;
